@@ -1,3 +1,5 @@
 {
-    "integrationFolder": "src/specs"
+    "integrationFolder": "src/specs",
+    "chromeWebSecurity": false,
+    "experimentalSessionAndOrigin": true
 }
