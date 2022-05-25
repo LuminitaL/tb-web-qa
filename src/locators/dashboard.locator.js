@@ -1,8 +1,4 @@
 export const dashboardLocators = {
-  signInButton: ".signin-auth0",
-  emailInput: "#username",
-  passwordInput: "#password",
-  submitButton: "button[type='submit']",
   tagboardsIframe: "#tagboards > iframe",
   newTagboardButton: ".toolbar button",
   nameInput: "input[name='name']",

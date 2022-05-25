@@ -1,46 +1,5 @@
 export class DashboardPO {
   /**
-   * @name navigateTo
-   * @description
-   * Visit the url of the website
-   */
-  navigateTo() {
-    cy.visit("https://account.tagboard.com/dashboard");
-  }
-
-  /**
-   * @name click
-   * @description
-   * Click on elements
-   *
-   * @param {string} locator Locator of needed element.
-   */
-  click(locator) {
-    cy.get(locator).click({ force: true });
-  }
-
-  /**
-   * @name type
-   * @description
-   * Type into a DOM element
-   *
-   * @param {string} locator Locator of needed element.
-   * @param {string} value Value to assert against locator.
-   */
-  type(locator, value) {
-    cy.get(locator).type(value);
-  }
-
-  /**
-   * @name reload
-   * @description
-   * Reload the webpage
-   */
-  reload() {
-    cy.reload();
-  }
-
-  /**
    * @name findAndClick
    * @description
    * Find and click on element from iframe

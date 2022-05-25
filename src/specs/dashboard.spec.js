@@ -1,17 +1,19 @@
 import { credentials } from "../data";
-import { dashboardLocators } from "../locators";
-import { DashboardPO } from "../page-objects";
+import { dashboardLocators, appLocators } from "../locators";
+import { DashboardPO, AppPO } from "../page-objects";
 
 describe("Smoke test cases for Tagboard Dashboard ", () => {
   let dashboardPO = null;
+  let appPO = null;
 
   beforeEach(() => {
+    appPO = new AppPO("https://account.tagboard.com/dashboard");
     dashboardPO = new DashboardPO();
-    dashboardPO.navigateTo();
-    dashboardPO.click(dashboardLocators.signInButton);
-    dashboardPO.type(dashboardLocators.emailInput, credentials.email);
-    dashboardPO.type(dashboardLocators.passwordInput, credentials.password);
-    dashboardPO.click(dashboardLocators.submitButton);
+    appPO.navigateTo();
+    appPO.click(appLocators.signInButton);
+    appPO.type(appLocators.emailInput, credentials.email);
+    appPO.type(appLocators.passwordInput, credentials.password);
+    appPO.click(appLocators.submitButton);
   });
 
   it("Create a new tagboard and validate if it exists", () => {
@@ -44,7 +46,7 @@ describe("Smoke test cases for Tagboard Dashboard ", () => {
   });
 
   it("Create a new theme and validate if it exists", () => {
-    dashboardPO.click(dashboardLocators.themesButton);
+    appPO.click(dashboardLocators.themesButton);
     dashboardPO.findAndClick(
       dashboardLocators.myThemesIframe,
       dashboardLocators.newThemeButton
@@ -64,9 +66,9 @@ describe("Smoke test cases for Tagboard Dashboard ", () => {
       dashboardLocators.savePanelButton
     );
 
-    dashboardPO.reload();
+    appPO.reload();
 
-    dashboardPO.click(dashboardLocators.themesButton);
+    appPO.click(dashboardLocators.themesButton);
 
     dashboardPO.findAndContain(
       dashboardLocators.myThemesIframe,
@@ -77,7 +79,7 @@ describe("Smoke test cases for Tagboard Dashboard ", () => {
   });
 
   it("Create a new panel and validate if it exists", () => {
-    dashboardPO.click(dashboardLocators.panelButton);
+    appPO.click(dashboardLocators.panelButton);
     dashboardPO.findAndClick(
       dashboardLocators.panelIframe,
       dashboardLocators.newPanelButton
@@ -98,9 +100,9 @@ describe("Smoke test cases for Tagboard Dashboard ", () => {
       dashboardLocators.savePanelButton
     );
 
-    dashboardPO.reload();
+    appPO.reload();
 
-    dashboardPO.click(dashboardLocators.panelButton);
+    appPO.click(dashboardLocators.panelButton);
 
     dashboardPO.findAndContain(
       dashboardLocators.panelIframe,
