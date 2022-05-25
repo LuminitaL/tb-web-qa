@@ -7,9 +7,9 @@ describe("Smoke test cases for Tagboard Dashboard ", () => {
   let appPO = null;
 
   beforeEach(() => {
-    appPO = new AppPO("https://account.tagboard.com/dashboard");
+    appPO = new AppPO();
     dashboardPO = new DashboardPO();
-    appPO.navigateTo();
+    appPO.navigateTo("https://account.tagboard.com/dashboard");
     appPO.click(appLocators.signInButton);
     appPO.type(appLocators.emailInput, credentials.email);
     appPO.type(appLocators.passwordInput, credentials.password);
